@@ -1,0 +1,27 @@
+import pandas as pd
+import io
+
+data = """amount_aed,country,merchant_category,account_age_days,previous_chargebacks,fraud_label
+500,UAE,Grocery,1200,0,0
+15000,Russia,Luxury,2,1,1
+200,UAE,Coffee,450,0,0
+8500,Brazil,Electronics,5,2,1
+1200,UAE,Utilities,800,0,0
+9000,Seychelles,Jewelry,1,1,1
+450,UAE,Dining,600,0,0
+12000,Unknown,Crypto,3,0,1
+300,UAE,Pharmacy,1100,0,0
+50,UAE,Transport,200,0,0
+18000,Russia,Electronics,4,3,1
+700,UAE,Grocery,900,0,0
+2500,UAE,Luxury,15,0,0
+11000,Brazil,Luxury,2,1,1
+150,UAE,Coffee,30,0,0
+9500,Unknown,Jewelry,8,2,1
+600,UAE,Dining,400,0,0
+20000,Seychelles,Electronics,1,0,1
+100,UAE,Utilities,150,0,0
+5000,UAE,Electronics,120,0,0"""
+
+df_triage = pd.read_csv(io.StringIO(data))
+df_triage.to_csv('uae_fraud_triage.csv', index=False)
